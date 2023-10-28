@@ -228,10 +228,8 @@ def train_all(dataloader, BP_model, FA_model, DFA_model, IFA_model, back):
       IFA_loss, dWs_IP[3], das_IP[3]  = IFA_model.forward(X_manual, one_hot_y.T, back, alpha)[1:]
 
       if back:
-        dWs_inner_products[:, batch], das_inner_products[:, batch]
-        dWs_inner_products[:, batch], das_inner_products[:, batch]
-        dWs_inner_products[:, batch], das_inner_products[:, batch]
-        dWs_inner_products[:, batch], das_inner_products[:, batch]
+        for i in range(4):
+          dWs_inner_products[i, batch], das_inner_products[i, batch] = dWs_IP[i], das_IP[i]
 
       batch_losses = [BP_loss, FA_loss, DFA_loss, IFA_loss]
       for i in range(len(batch_losses)):
